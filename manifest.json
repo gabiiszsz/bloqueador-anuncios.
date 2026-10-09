@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Bloqueador de An\u00fancios",
+  "version": "1.0",
+  "description": "Bloqueia an\u00fancios na web e pula an\u00fancios de v\u00eddeo no YouTube.",
+  "permissions": [
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "js": [
+        "youtube.js"
+      ],
+      "css": [
+        "youtube.css"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "bloqueador-anuncios@gabiiszsz.github.io"
+    }
+  }
+}
